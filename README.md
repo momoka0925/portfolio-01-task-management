@@ -137,14 +137,14 @@ portfolio-01-task-management/
 
 ## スクリーンショット
 
-> 撮影手順は [screenshots/README.md](screenshots/README.md) を参照。
-> 下記のファイルを `screenshots/` に置くと表示されます。
-
-<!--
+### タスク一覧
 ![タスク一覧](screenshots/01-list.png)
+
+### タスク追加
 ![タスク追加](screenshots/02-add.png)
+
+### タスク編集（モーダル）
 ![タスク編集](screenshots/03-edit.png)
--->
 
 ## デモURL
 
