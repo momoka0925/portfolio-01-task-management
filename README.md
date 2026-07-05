@@ -1,37 +1,42 @@
-# Task Management API
+# Task Management
 
-FastAPIで構築したタスク管理API。Portfolio Master Planの Project 01。
+FastAPI + Next.js で構築したフルスタックのタスク管理アプリ。Portfolio Master Plan の Project 01。
 
 ## 概要
 
-タスクの作成・一覧取得・更新・削除ができるシンプルなREST APIです。Service / Repository層を分離した実務レベルのレイヤー構成で実装しています。
+タスクの作成・一覧・更新・削除ができるフルスタックアプリです。バックエンドは Service / Repository 層を分離した実務レベルのレイヤー構成、フロントエンドは Next.js (App Router) + TypeScript で実装しています。
 
 ## 使用技術
 
-- Python 3.12
-- FastAPI
-- SQLAlchemy 2.0
-- Pydantic v2
+### バックエンド
+- Python 3.12 / FastAPI
+- SQLAlchemy 2.0 / Pydantic v2
 - SQLite（開発） / PostgreSQL（本番想定）
-- pytest / httpx
-- Ruff
+- pytest / httpx / Ruff
+
+### フロントエンド
+- Next.js (App Router) / React 19
+- TypeScript (strict)
+- Tailwind CSS
+
+### インフラ / CI
 - Docker / Docker Compose
-- GitHub Actions
+- GitHub Actions（Ruff + pytest / ESLint + build）
 
 ## 機能一覧
 
 - タスクの作成
-- タスク一覧の取得
-- タスク詳細の取得
-- タスクの更新
+- タスク一覧の取得・表示
+- タスクの完了/未完了の切り替え
+- タスクの更新（モーダル編集）
 - タスクの削除
 
 ## システム構成
 
 ```text
-Client
-  │ HTTP
-FastAPI (app/api)
+Next.js UI (frontend)
+  │ HTTP (fetch)
+FastAPI (backend/app/api)
   │
 Service層 (app/services)
   │
@@ -42,7 +47,7 @@ SQLAlchemy / SQLite
 
 ## セットアップ
 
-### ローカル環境
+### バックエンド
 
 ```bash
 cd backend
@@ -55,7 +60,18 @@ uvicorn app.main:app --reload
 
 http://127.0.0.1:8000/docs でSwagger UIから動作確認できます。
 
-### Docker
+### フロントエンド
+
+```bash
+cd frontend
+npm install
+cp .env.example .env.local
+npm run dev
+```
+
+http://localhost:3000 で画面を確認できます（バックエンドを起動しておくこと）。
+
+### Docker（バックエンド）
 
 ```bash
 docker compose up --build
@@ -104,6 +120,13 @@ portfolio-01-task-management/
       db/           # DB接続
       main.py
     tests/
+  frontend/
+    app/            # App Router (page / layout)
+    components/      # 共通UI (Button, Input, Modal)
+    features/tasks/  # TaskList / TaskForm / TaskItem / TaskEditModal
+    services/        # API通信 (api.ts, taskApi.ts)
+    types/           # 型定義
+    lib/             # 設定 (API base URL)
   docs/
     requirements.md  # 要件定義・設計書
   .github/workflows/ci.yml
@@ -114,7 +137,7 @@ portfolio-01-task-management/
 
 ## スクリーンショット
 
-TODO: Swagger UIのスクリーンショットを追加する。
+TODO: タスク一覧・追加・編集画面のスクリーンショットを追加する。
 
 ## デモURL
 
@@ -122,8 +145,8 @@ TODO: デプロイ後に追加する。
 
 ## 今後の改善点
 
-- フロントエンド（Next.js）の実装
 - ログイン機能（JWT認証）
 - 優先度・カテゴリ・検索機能
 - Alembicによるマイグレーション管理
 - PostgreSQL対応
+- フロントエンドのデプロイ（Vercel）とバックエンドのデプロイ（Railway）
