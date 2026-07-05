@@ -137,11 +137,18 @@ portfolio-01-task-management/
 
 ## スクリーンショット
 
-TODO: タスク一覧・追加・編集画面のスクリーンショットを追加する。
+> 撮影手順は [screenshots/README.md](screenshots/README.md) を参照。
+> 下記のファイルを `screenshots/` に置くと表示されます。
+
+<!--
+![タスク一覧](screenshots/01-list.png)
+![タスク追加](screenshots/02-add.png)
+![タスク編集](screenshots/03-edit.png)
+-->
 
 ## デモURL
 
-TODO: デプロイ後に追加する。
+TODO: デプロイ後に追加する（手順: [docs/deploy.md](docs/deploy.md)）。
 
 ## 今後の改善点
 
