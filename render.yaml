@@ -1,0 +1,15 @@
+# Render Blueprint: バックエンド(FastAPI)を Docker で公開する。
+# Render の Dashboard で "New +" → "Blueprint" からこのリポジトリを選ぶと、この定義で構築される。
+# 参考: https://render.com/docs/blueprint-spec
+services:
+  - type: web
+    name: portfolio-01-task-management-api
+    runtime: docker
+    plan: free
+    rootDir: backend
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /health
+    envVars:
+      # フロント(Vercel)の本番URLを許可する。Vercelデプロイ後に Dashboard で値を設定する
+      - key: CORS_ORIGINS
+        sync: false
