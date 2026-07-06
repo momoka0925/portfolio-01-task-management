@@ -2,6 +2,8 @@
 
 FastAPI + Next.js で構築したフルスタックのタスク管理アプリ。Portfolio Master Plan の Project 01。
 
+**🔗 デモ: https://portfolio-01-task-management.vercel.app/** ｜ **API: https://portfolio-01-task-management.onrender.com/docs**
+
 ## 概要
 
 タスクの作成・一覧・更新・削除ができるフルスタックアプリです。バックエンドは Service / Repository 層を分離した実務レベルのレイヤー構成、フロントエンドは Next.js (App Router) + TypeScript で実装しています。
@@ -148,7 +150,13 @@ portfolio-01-task-management/
 
 ## デモURL
 
-TODO: デプロイ後に追加する（手順: [docs/deploy.md](docs/deploy.md)）。
+- **アプリ（フロントエンド）**: https://portfolio-01-task-management.vercel.app/
+- **API（Swagger UI）**: https://portfolio-01-task-management.onrender.com/docs
+
+> バックエンドはRenderの無料枠で稼働しているため、一定時間アクセスがないとスリープします。
+> 初回アクセス時は起動に50秒ほどかかる場合があります（コールドスタート）。
+
+デプロイ構成・手順は [docs/deploy.md](docs/deploy.md) を参照。
 
 ## 今後の改善点
 
